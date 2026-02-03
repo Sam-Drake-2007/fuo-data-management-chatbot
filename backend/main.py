@@ -2,7 +2,6 @@
 
 import os
 import json
-from xml.parsers.expat import model
 from fastapi import FastAPI
 from google import genai
 from google.genai import types
