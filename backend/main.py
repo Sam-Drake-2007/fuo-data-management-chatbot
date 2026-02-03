@@ -42,6 +42,7 @@ async def read_root() -> dict:
 @app.post("/generate")
 async def generate_text(prompt: str, history: str) -> dict:
     history = json.loads(history)
+    print(history)
     response = await generate(prompt, history)
     return {"response": response}
 
@@ -67,7 +68,8 @@ async def generate(prompt: str, history: list[list[str]]) -> str:
     for turn in history:
         user_msg, bot_msg = turn
         instructions += f"User: {user_msg}\nBot: {bot_msg}\n"
-            
+    
+    print(instructions)
     generate_content_config = types.GenerateContentConfig(
         tools=tools,
         system_instruction=[
