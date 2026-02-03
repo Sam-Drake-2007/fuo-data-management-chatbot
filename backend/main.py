@@ -68,7 +68,6 @@ async def generate(prompt: str, history: list[list[str]]) -> str:
         user_msg, bot_msg = turn
         instructions += f"User: {user_msg}\nBot: {bot_msg}\n"
     
-    print(instructions)
     generate_content_config = types.GenerateContentConfig(
         tools=tools,
         system_instruction=[
